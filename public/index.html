@@ -13,7 +13,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Who's that Pokemon?</title>
+    <meta name='mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-title' content="Who's that Pokemon?"" />
+    <meta name="msapplication-TileImage" content="<%= BASE_URL %>app_icon.png"/>
+    <link rel='apple-touch-startup-image' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='apple-touch-icon' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='apple-touch-icon' sizes='72x72' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='apple-touch-icon' sizes='114x114' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='apple-touch-icon' sizes='144x144' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='icon' sizes='192x192' href='<%= BASE_URL %>app_icon.png' />
+    <link rel='icon' sizes='128x128' href='<%= BASE_URL %>app_icon.png' />
     <script type="text/javascript">
       (function (document, navigator, standalone) {
           if ((standalone in navigator) && navigator[standalone]) {
@@ -39,7 +50,7 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but `Who's that Pokemon?` doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->

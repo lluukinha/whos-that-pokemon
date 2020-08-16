@@ -25,9 +25,12 @@
     <div class="middle" v-show="showMore">
       <PassedList :list="passedList" />
     </div>
-    <button v-show="showMore" class="error" @click="restartGame()">
-      RESTART GAME
-    </button>
+    <div v-show="showMore">
+      <button class="hide-btn" @click="showMore = false">HIDE ↓</button>
+      <button class="error" @click="restartGame()">
+        RESTART GAME
+      </button>
+    </div>
   </div>
 </template>
 
@@ -143,4 +146,8 @@ button
 
 .success
   background-color: #25d825
+
+.hide-btn
+  margin-right: 10px
+  color: black
 </style>
