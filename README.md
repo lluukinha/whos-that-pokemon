@@ -1,10 +1,10 @@
 # Who's That Pokemon?
 
-Demo: https://lluukinha.github.io/whos-that-pokemon/dist/
+Demo: [https://lluukinha.github.io/whos-that-pokemon/dist/](https://lluukinha.github.io/whos-that-pokemon/dist/)
 
-I created a simple `Who's that pokemon` game using VueJs only based on [this project](https://github.com/raraujo91/whos-that-pokemon) i saw from a friend from facebook using React.
+I created a simple `Who's that pokemon` game using only VueJs based on [this project](https://github.com/raraujo91/whos-that-pokemon) i saw from a friend from Facebook using React.
 
-The pokemon list Json is a file I created for use in another projects, that's why it has informations about the type, description, next evolutin, etc...
+The pokemon list Json is a file I created for use in another projects, that's why it has informations about the type, description, next evolutions, etc...
 The Json is in portuguese (PT-BR) but everything else is coded in English.
 
 ##### Why do I use Pokemon data in almost every project?
@@ -16,7 +16,7 @@ The Json is in portuguese (PT-BR) but everything else is coded in English.
 
 ### About myself
 
-I am a software developer since 2011 and working professionally since 2013.
+I am a software developer since 2011 and working professionally since 2013 and a great techology and videogames lover.
 
 ### Links and Projects
 * [Pokedex](http://www.pokedexphp.com.br) - Pokedex built with Vanilla PHP and Vanilla JS
