@@ -12,10 +12,7 @@
       <tr v-for="pokemon in list" :key="pokemon.numero_dex">
         <td>{{ pokemon.nome }}</td>
         <td>
-          <img
-            :src="`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.img}`"
-            width="50"
-          />
+          <PokeImg :width="50" :file="pokemon.img" />
         </td>
       </tr>
     </tbody>
@@ -23,8 +20,14 @@
 </template>
 
 <script>
+import PokeImg from '@/components/PokeImg.vue';
+
 export default {
   name: 'PassedList',
+
+  components: {
+    PokeImg,
+  },
 
   props: {
     list: {

@@ -1,20 +1,25 @@
 <template>
   <div class="pokemon">
-    <img
-      class="poke undraggable"
+    <PokeImg
+      class="poke"
       :class="{
         black: !isChosen,
         hidden: isChanging,
       }"
-      :src="imgPokemon"
-      alt="Pokemon"
+      :file="pokemon.img"
     />
   </div>
 </template>
 
 <script>
+import PokeImg from '@/components/PokeImg.vue';
+
 export default {
   name: 'Pokemon',
+
+  components: {
+    PokeImg,
+  },
 
   props: {
     pokemon: {
@@ -30,19 +35,11 @@ export default {
       required: true,
     },
   },
-
-  computed: {
-    imgPokemon() {
-      const pokeImg = this.pokemon.img;
-      return `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeImg}`;
-    },
-  },
 };
 </script>
 
 <style lang="sass" scoped>
 .poke
-  max-width: 250px
   opacity: 1
   transition: all 0.8s
 
