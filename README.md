@@ -16,7 +16,7 @@ The Json is in portuguese (PT-BR) but everything else is coded in English.
 
 ### About myself
 
-I am a software developer since 2013 and a great videogames and techology lover. 
+I am a software developer since 2011 and working professionally since 2013.
 
 ### Links and Projects
 * [Pokedex](http://www.pokedexphp.com.br) - Pokedex built with Vanilla PHP and Vanilla JS
