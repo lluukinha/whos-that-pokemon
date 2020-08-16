@@ -73,7 +73,7 @@ export default {
         setTimeout(() => {
           this.countDown -= 1;
           this.runTimer(pokemon);
-        }, 1000);
+        }, 500);
         return;
       }
 
