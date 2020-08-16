@@ -14,4 +14,5 @@ export default {
 h3
   margin-top: 5px
   margin-bottom: 5px
+  text-shadow: 2px 5px 5px #000000
 </style>

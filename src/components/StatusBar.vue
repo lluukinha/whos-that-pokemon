@@ -6,18 +6,10 @@
     <div class="top">
       <div>Score: {{ score }}</div>
       <div>
-        <button
-          class="error"
-          v-if="isChosen && !isPassed"
-          @click="$emit('reset')"
-        >
+        <button class="error" v-if="showResetButton" @click="$emit('reset')">
           RESET
         </button>
-        <button
-          v-if="isChosen && isPassed"
-          @click="$emit('next')"
-          class="success"
-        >
+        <button v-if="showNextButton" @click="$emit('next')" class="success">
           NEXT
         </button>
       </div>
@@ -79,6 +71,15 @@ export default {
     window.addEventListener('keyup', (key) => {
       if (key.keyCode === 13) this.goNext();
     });
+  },
+
+  computed: {
+    showNextButton() {
+      return this.isChosen && this.isPassed && this.score < 151;
+    },
+    showResetButton() {
+      return this.isChosen && !this.isPassed;
+    },
   },
 
   methods: {

@@ -140,7 +140,7 @@ ul
     cursor: pointer
     position: relative
     display: block
-    padding: .75rem 1.25rem
+    padding: .50rem 1.25rem
     border: 1px solid rgba(0,0,0,.125)
     transition: background-color 0.5s
     background-color: #580000
@@ -165,8 +165,8 @@ ul
   margin-top: -20px
   opacity: 0
   transition: all 0.8s
-  margin-bottom: 5px
-  text-shadow: 2px 1px 3px black
+  margin-bottom: 1px
+  text-shadow: 2px 5px 5px #000000
 
 .showName
   opacity: 1 !important

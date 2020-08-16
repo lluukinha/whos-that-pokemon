@@ -1,7 +1,7 @@
 <template>
   <div class="game">
     <Title />
-    <div class="container" v-if="currentPokemon">
+    <div class="container" v-if="currentPokemon && points < 151" @click="fastContinue()">
       <Pokemon
         :pokemon="currentPokemon"
         :isChosen="pokemonChosen"
@@ -19,6 +19,11 @@
         />
       </div>
     </div>
+    <Congratulations
+      class="container"
+      v-if="points === 151"
+      @reset="reset()"
+    />
     <StatusBar
       :score="points"
       :isChosen="pokemonChosen"
@@ -36,6 +41,7 @@ import SuggestionsList from '@/components/SuggestionsList.vue';
 import Title from '@/components/Title.vue';
 import Pokemon from '@/components/Pokemon.vue';
 import StatusBar from '@/components/StatusBar.vue';
+import Congratulations from '@/components/Congratulations.vue';
 
 export default {
     name: 'Game',
@@ -63,6 +69,7 @@ export default {
       Title,
       Pokemon,
       StatusBar,
+      Congratulations,
     },
 
     computed: {
@@ -81,6 +88,11 @@ export default {
         this.pokemonChosen = true;
         if (stage) this.points += 1;
         this.passed = stage;
+      },
+
+      fastContinue() {
+        if (!this.passed) return;
+        this.showNext();
       },
 
       showNext() {
