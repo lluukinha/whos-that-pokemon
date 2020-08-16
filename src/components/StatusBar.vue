@@ -127,6 +127,7 @@ export default {
   background-color: white
   margin: auto
   margin-top: 5px
+  margin-bottom: 5px
   box-shadow: 1px 1px 2px black
 
 .middle

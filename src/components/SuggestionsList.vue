@@ -3,7 +3,6 @@
     <h1 class="pokemon-name undraggable" :class="{ showName : showName }">
       {{ current.nome }}
     </h1>
-    <h1 class="countdown" :class="{ show: showCountdown }">{{ countDown }}</h1>
     <ul>
       <li
         v-for="suggestion in list"
@@ -132,7 +131,6 @@ ul
   padding-left: 0
   margin-bottom: 0
   border-radius: .25rem
-  margin-top: -10px
 
   li:first-child
     border-top-left-radius: inherit

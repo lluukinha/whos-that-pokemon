@@ -48,4 +48,10 @@ export default {
 
 .black
   filter: brightness(0.0)
+
+.pokemon
+  background-image: url('../assets/blurred-circle.png')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
 </style>
