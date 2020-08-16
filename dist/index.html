@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang=en><head><script async src="https://www.googletagmanager.com/gtag/js?id=UA-159952626-1"></script><script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-159952626-1');</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>whos-that-pokemon</title><script>(function (document, navigator, standalone) {
+          if ((standalone in navigator) && navigator[standalone]) {
+              var curnode, location = document.location, stop = /^(a|html)$/i;
+              document.addEventListener('click', function (e) {
+                  curnode = e.target;
+                  while (!(stop).test(curnode.nodeName)) {
+                      curnode = curnode.parentNode;
+                  }
+                  if (
+                          'href' in curnode &&
+                          (chref = curnode.href).replace(location.href, '').indexOf('#') && // is not an anchor
+                          (!(/^[a-z\+\.\-]+:/i).test(chref) ||
+                                  chref.indexOf(location.protocol + '//' + location.host) === 0)
+                          ) {
+                      e.preventDefault();
+                      location.href = curnode.href;
+                  }
+              }, false);
+          }
+      })(document, window.navigator, 'standalone');</script><link href=/css/app.98948307.css rel=preload as=style><link href=/js/app.2a6c4924.js rel=preload as=script><link href=/js/chunk-vendors.f6ae1aff.js rel=preload as=script><link href=/css/app.98948307.css rel=stylesheet></head><body><noscript><strong>We're sorry but whos-that-pokemon doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.f6ae1aff.js></script><script src=/js/app.2a6c4924.js></script></body></html>

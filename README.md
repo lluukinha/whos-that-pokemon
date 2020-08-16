@@ -1,6 +1,6 @@
 # Who's That Pokemon?
 
-I created a simple `Who's that pokemon` game using VueJs only.
+I created a simple `Who's that pokemon` game using VueJs only based on [this project](https://github.com/raraujo91/whos-that-pokemon) i saw from a friend from facebook using React.
 
 The pokemon list Json is a file I created for use in another projects, that's why it has informations about the type, description, next evolutin, etc...
 The Json is in portuguese (PT-BR) but everything else is coded in English.
