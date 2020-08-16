@@ -145,6 +145,8 @@ ul
     padding: .75rem 1.25rem
     border: 1px solid rgba(0,0,0,.125)
     transition: background-color 0.5s
+    background-color: #580000
+    text-shadow: 1px 1px 1px black
     &:hover
         &:not(.unclickable)
           background-color: #695642
