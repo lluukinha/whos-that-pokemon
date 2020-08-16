@@ -23,6 +23,7 @@ I am a software developer since 2011 and working professionally since 2013.
 * [Instagram](https://www.instagr.am/lluukinha) - Personal Profile
 * [Youtube](https://www.youtube.com/lucasdev) - Youtube channel (PT-BR)
 * [Page](https://www.lucasd.com.br) - Personal Home page.
+* [LinkedIn](https://www.linkedin.com/in/lucas-dias-de-souza-2210b167/) - My LinkedIn Profile
 
 ### Installation
 
