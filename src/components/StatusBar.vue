@@ -1,5 +1,5 @@
 <template>
-  <div class="hud" ref="hud">
+  <div class="hud" ref="hud" @keyup.enter="goNext()">
     <div class="changeable" @click="changeView">
       <div class="symbol" />
     </div>
@@ -75,6 +75,12 @@ export default {
     PassedList,
   },
 
+  mounted() {
+    window.addEventListener('keyup', (key) => {
+      if (key.keyCode === 13) this.goNext();
+    });
+  },
+
   methods: {
     changeView() {
       this.showMore = !this.showMore;
@@ -82,6 +88,9 @@ export default {
     restartGame() {
       this.showMore = false;
       this.$emit('reset');
+    },
+    goNext() {
+      if (this.isChosen && this.isPassed) this.$emit('next');
     }
   },
 };
