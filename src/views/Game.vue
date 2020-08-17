@@ -117,7 +117,7 @@ export default {
         this.pokemonChosen = false;
         this.passed = null;
         this.currentPokemon = null;
-        this.countDown = 2;
+        this.countDown = 3;
 
         setTimeout(() => {
           this.isChanging = false;
