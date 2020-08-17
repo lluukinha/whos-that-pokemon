@@ -1,7 +1,13 @@
 <template>
   <div class="game">
     <Title />
-    <div class="container" v-if="points < 151" @click="fastContinue()">
+    <EndGame
+      class="container"
+      v-if="points === 151 || gameOver"
+      :score="points"
+      @reset="reset()"
+    />
+    <div class="container" v-else>
       <Pokemon
         :img="pokemonImage"
         :isChosen="pokemonChosen"
@@ -19,18 +25,12 @@
         />
       </div>
     </div>
-    <Congratulations
-      class="container"
-      v-if="points === 151"
-      @reset="reset()"
-    />
     <StatusBar
       :score="points"
       :isChosen="pokemonChosen"
       :isPassed="passed"
       :passedList="passedList"
       @reset="reset()"
-      @next="showNext()"
     />
   </div>
 </template>
@@ -41,7 +41,7 @@ import SuggestionsList from '@/components/SuggestionsList.vue';
 import Title from '@/components/Title.vue';
 import Pokemon from '@/components/Pokemon.vue';
 import StatusBar from '@/components/StatusBar.vue';
-import Congratulations from '@/components/Congratulations.vue';
+import EndGame from '@/components/EndGame.vue';
 
 export default {
     name: 'Game',
@@ -61,6 +61,8 @@ export default {
         passed: null,
         isChanging: false,
         canClick: true,
+        countDown: 3,
+        gameOver: false,
       };
     },
 
@@ -69,7 +71,7 @@ export default {
       Title,
       Pokemon,
       StatusBar,
-      Congratulations,
+      EndGame,
     },
 
     computed: {
@@ -81,7 +83,7 @@ export default {
         return this.passedPokemons.filter(poke => poke !== this.currentPokemon);
       },
       pokemonImage() {
-        return this.currentPokemon ? this.currentPokemon.img : null;
+        return this.currentPokemon?.img || null;
       },
     },
 
@@ -91,10 +93,22 @@ export default {
         this.pokemonChosen = true;
         if (stage) this.points += 1;
         this.passed = stage;
+        this.continueToCountDown();
       },
 
-      fastContinue() {
-        if (!this.passed) return;
+      continueToCountDown() {
+        if(this.countDown > 0) {
+          setTimeout(() => {
+            this.countDown -= 1;
+            this.continueToCountDown();
+          }, 800);
+          return;
+        }
+
+        if (!this.passed) {
+          this.gameOver = true;
+          return;
+        }
         this.showNext();
       },
 
@@ -103,6 +117,7 @@ export default {
         this.pokemonChosen = false;
         this.passed = null;
         this.currentPokemon = null;
+        this.countDown = 2;
 
         setTimeout(() => {
           this.isChanging = false;
@@ -111,6 +126,7 @@ export default {
       },
 
       reset() {
+        this.gameOver = false;
         this.points = 0;
         this.passedPokemons = [];
         this.showNext();
@@ -124,12 +140,9 @@ export default {
         this.currentPokemon = newPokemon;
         this.passedPokemons.push(newPokemon);
 
-        const list = this.pokeList
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 3);
-        list.push(this.currentPokemon);
-
-        this.suggestions = list.sort(() => 0.5 - Math.random());
+        const suggestions = pokemons.sort(() => 0.5 - Math.random()).slice(0, 3);
+        suggestions.push(this.currentPokemon);
+        this.suggestions = suggestions.sort(() => 0.5 - Math.random());
 
         this.isLoaded = true;
       },
