@@ -30,7 +30,7 @@ export default {
   watch: {
     showMore(value) {
       const el = this.$refs.hud;
-      if (value) el.style.height = '80vh';
+      if (value) el.style.height = '90vh';
       if (!value) el.style.height = '50px';
     },
   },
@@ -81,7 +81,7 @@ export default {
 .hud
   position: fixed
   left: 0
-  min-height: 60px
+  min-height: 40px
   height: auto
   bottom: 0
   width: 100%
@@ -96,7 +96,8 @@ export default {
   display: flex
   justify-content: space-around
   align-items: center
-  height: 40px
+  height: 30px
+  font-size: 16px
 
 .symbol
   cursor: pointer
@@ -124,10 +125,11 @@ button
   user-select: none
   border: 1px solid transparent
   padding: .375rem .75rem
-  font-size: 1rem
-  line-height: 1.5
-  border-radius: .25rem
   color: white
+  padding: .25rem .5rem
+  font-size: .575rem
+  line-height: 1.5
+  border-radius: .2rem
 
 .error
   background-color: #ff6969

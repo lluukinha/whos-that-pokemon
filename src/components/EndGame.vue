@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+img
+  max-width: 250px
+
 h2
   text-shadow: 3px 5px 5px #000000
   margin-top: -7px
