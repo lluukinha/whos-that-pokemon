@@ -33,7 +33,3 @@ You just need to clone the repository and install the npm package.
 $ npm install
 $ npm run serve
 ```
-
-### Todos
-
- - Add a congratulations page if the user reach all 151
