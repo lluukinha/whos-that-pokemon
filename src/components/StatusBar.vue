@@ -1,24 +1,19 @@
 <template>
-  <div class="hud" ref="hud" @keyup.enter="goNext()">
+  <div class="hud" ref="hud">
     <div class="changeable" @click="changeView">
       <div class="symbol" />
     </div>
     <div class="top">
       <div>Score: {{ score }}</div>
       <div>
-        <button class="error" v-if="showResetButton" @click="$emit('reset')">
-          RESET
-        </button>
-        <button v-if="showNextButton" @click="$emit('next')" class="success">
-          NEXT
-        </button>
+        <button class="details-btn" @click="changeView" v-if="!showMore">DETAILS ⬆</button>
       </div>
     </div>
     <div class="middle" v-show="showMore">
       <PassedList :list="passedList" />
     </div>
     <div v-show="showMore">
-      <button class="hide-btn" @click="showMore = false">HIDE ↓</button>
+      <button class="details-btn" @click="showMore = false">HIDE ↓</button>
       <button class="error" @click="restartGame()">
         RESTART GAME
       </button>
@@ -67,21 +62,6 @@ export default {
     PassedList,
   },
 
-  mounted() {
-    window.addEventListener('keyup', (key) => {
-      if (key.keyCode === 13) this.goNext();
-    });
-  },
-
-  computed: {
-    showNextButton() {
-      return this.isChosen && this.isPassed && this.score < 151;
-    },
-    showResetButton() {
-      return this.isChosen && !this.isPassed;
-    },
-  },
-
   methods: {
     changeView() {
       this.showMore = !this.showMore;
@@ -90,9 +70,6 @@ export default {
       this.showMore = false;
       this.$emit('reset');
     },
-    goNext() {
-      if (this.isChosen && this.isPassed) this.$emit('next');
-    }
   },
 };
 </script>
@@ -158,7 +135,7 @@ button
 .success
   background-color: #25d825
 
-.hide-btn
+.details-btn
   margin-right: 10px
   color: black
 </style>

@@ -6,7 +6,7 @@
         black: !isChosen,
         hidden: isChanging,
       }"
-      :file="pokemon.img"
+      :file="img"
     />
   </div>
 </template>
@@ -22,10 +22,7 @@ export default {
   },
 
   props: {
-    pokemon: {
-      type: Object,
-      required: true,
-    },
+    img: String,
     isChosen: {
       type: Boolean,
       required: true,

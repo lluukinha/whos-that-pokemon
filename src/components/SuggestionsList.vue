@@ -9,7 +9,6 @@
         :key="suggestion.numero_dex"
         class="undraggable"
         :class="{
-          selected: checkSelected(suggestion),
           success: showRightSuggestion(suggestion),
           error: checkError(suggestion),
           unclickable: !canClick
@@ -36,8 +35,6 @@ export default {
   data() {
     return {
       pokemonChosen: null,
-      countDown: 1,
-      showCountdown: false,
     };
   },
 
@@ -62,22 +59,12 @@ export default {
 
   computed: {
     showName() {
-      return !this.isChanging && this.countDown === 0;
+      return this.pokemonChosen && !this.isChanging;
     },
   },
 
   methods: {
     runTimer(pokemon) {
-      if(this.countDown > 0) {
-        this.showCountdown = true;
-        setTimeout(() => {
-          this.countDown -= 1;
-          this.runTimer(pokemon);
-        }, 500);
-        return;
-      }
-
-      this.showCountdown = false;
       if (this.checkSuccess(pokemon)) this.$emit('success');
       if (this.checkError(pokemon)) this.$emit('error');
     },
@@ -90,23 +77,17 @@ export default {
     },
 
     checkSuccess(pokemon) {
-      return this.countDown === 0
-        && this.pokemonChosen === pokemon
+      return this.pokemonChosen === pokemon
         && this.pokemonChosen === this.current;
     },
 
     showRightSuggestion(pokemon) {
-      return this.countDown === 0 && pokemon === this.current;
+      return this.pokemonChosen && pokemon === this.current;
     },
 
     checkError(pokemon) {
-      return this.countDown === 0
-        && this.pokemonChosen === pokemon
+      return this.pokemonChosen === pokemon
         && this.pokemonChosen !== this.current;
-    },
-
-    checkSelected(pokemon) {
-      return this.countDown > 0 && this.pokemonChosen === pokemon;
     },
   }
 };
@@ -157,9 +138,6 @@ ul
 
   .error
     background-color: #ff6969
-
-  .selected
-    background-color: #695642
 
 .pokemon-name
   margin-top: -20px
