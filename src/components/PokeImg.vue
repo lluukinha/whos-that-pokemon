@@ -10,18 +10,17 @@
 <script>
 export default {
   name: 'PokeImg',
+
   props: {
     width: {
       type: Number,
       default: 250,
     },
-    file: {
-      type: String,
-      required: true,
-    },
+    file: String,
   },
   computed: {
     img() {
+      if (!this.file) return require('../assets/none.png');
       const url = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
       return `${url}/${this.file}`;
     },

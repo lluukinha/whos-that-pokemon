@@ -1,13 +1,13 @@
 <template>
   <div class="game">
     <Title />
-    <div class="container" v-if="currentPokemon && points < 151" @click="fastContinue()">
+    <div class="container" v-if="points < 151" @click="fastContinue()">
       <Pokemon
-        :pokemon="currentPokemon"
+        :img="pokemonImage"
         :isChosen="pokemonChosen"
         :isChanging="isChanging"
       />
-      <div class="options">
+      <div class="options" v-if="currentPokemon">
         <SuggestionsList
           :isChanging="isChanging"
           :canClick="canClick"
@@ -80,6 +80,9 @@ export default {
       passedList() {
         return this.passedPokemons.filter(poke => poke !== this.currentPokemon);
       },
+      pokemonImage() {
+        return this.currentPokemon ? this.currentPokemon.img : null;
+      },
     },
 
     methods: {
@@ -99,6 +102,7 @@ export default {
         this.isChanging = true;
         this.pokemonChosen = false;
         this.passed = null;
+        this.currentPokemon = null;
 
         setTimeout(() => {
           this.isChanging = false;
