@@ -140,7 +140,9 @@ export default {
         this.currentPokemon = newPokemon;
         this.passedPokemons.push(newPokemon);
 
-        const suggestions = pokemons.sort(() => 0.5 - Math.random()).slice(0, 3);
+        const suggestions = pokemons
+          .filter(pokemon => pokemon !== this.currentPokemon)
+          .sort(() => 0.5 - Math.random()).slice(0, 3);
         suggestions.push(this.currentPokemon);
         this.suggestions = suggestions.sort(() => 0.5 - Math.random());
 
