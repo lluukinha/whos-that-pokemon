@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import pokemons from '@/data/pokemons.json';
+
 export default {
   name: 'EndGame',
 
@@ -18,16 +20,19 @@ export default {
   },
 
   computed: {
+    fullDex() {
+      return pokemons.length;
+    },
     message() {
-      let msg = `Congratulations! You know all the Kanto Pokemons.<br>I'm sure you had a wonderful childhood`;
+      let msg = `Congratulations! You know all Kanto Pokemons and some of Johto.<br>I bet you had a wonderful childhood. Come back later to see if i have more.`;
       if (this.score < 40) msg = 'Not even 40? You should study more about pokemons!';
-      if (this.score > 39 && this.score < 151) msg = `${this.score}? Not bad, but i know you can get more than that.`;
+      if (this.score > 39 && this.score < this.fullDex) msg = `${this.score}? Not bad, but i know you can get more than that.`;
       return msg;
     },
     image() {
       let img = 'oak.png';
       if (this.score < 40) img = 'madOak.png';
-      if (this.score > 39 && this.score < 151) img = 'normalOak.png';
+      if (this.score > 39 && this.score < this.fullDex) img = 'normalOak.png';
       return require(`../assets/${img}`);
     },
   }

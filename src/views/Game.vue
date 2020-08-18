@@ -3,7 +3,7 @@
     <Title />
     <EndGame
       class="container"
-      v-if="points === 151 || gameOver"
+      v-if="points === fullDex || gameOver"
       :score="points"
       @reset="reset()"
     />
@@ -61,7 +61,7 @@ export default {
         passed: null,
         isChanging: false,
         canClick: true,
-        countDown: 2,
+        countDown: 3,
         gameOver: false,
       };
     },
@@ -75,6 +75,9 @@ export default {
     },
 
     computed: {
+      fullDex() {
+        return pokemons.length;
+      },
       pokeList() {
         return pokemons
           .filter((poke) => !this.passedPokemons.includes(poke));
@@ -101,7 +104,7 @@ export default {
           setTimeout(() => {
             this.countDown -= 1;
             this.continueToCountDown();
-          }, 600);
+          }, 500);
           return;
         }
 
@@ -119,7 +122,7 @@ export default {
         this.pokemonChosen = false;
         this.passed = null;
         this.currentPokemon = null;
-        this.countDown = 2;
+        this.countDown = 3;
 
         setTimeout(() => {
           this.isChanging = false;
