@@ -61,7 +61,7 @@ export default {
         passed: null,
         isChanging: false,
         canClick: true,
-        countDown: 3,
+        countDown: 2,
         gameOver: false,
       };
     },
@@ -101,12 +101,14 @@ export default {
           setTimeout(() => {
             this.countDown -= 1;
             this.continueToCountDown();
-          }, 800);
+          }, 600);
           return;
         }
 
         if (!this.passed) {
-          this.gameOver = true;
+          setTimeout(() => {
+            this.gameOver = true;
+          }, 1000);
           return;
         }
         this.showNext();
@@ -117,7 +119,7 @@ export default {
         this.pokemonChosen = false;
         this.passed = null;
         this.currentPokemon = null;
-        this.countDown = 3;
+        this.countDown = 2;
 
         setTimeout(() => {
           this.isChanging = false;
@@ -141,8 +143,7 @@ export default {
         this.passedPokemons.push(newPokemon);
 
         const suggestions = pokemons
-          .filter(pokemon => pokemon !== this.currentPokemon)
-          .sort(() => 0.5 - Math.random()).slice(0, 3);
+          .filter(pokemon => pokemon !== newPokemon).sort(() => 0.5 - Math.random()).slice(0, 3);
         suggestions.push(this.currentPokemon);
         this.suggestions = suggestions.sort(() => 0.5 - Math.random());
 
